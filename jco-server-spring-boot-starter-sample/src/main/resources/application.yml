@@ -1,0 +1,11 @@
+# spring.profiles.active
+spring:
+  profiles:
+    active: test
+
+server:
+  port: 10010
+
+logging:
+  level:
+    org.yanzx.core.extend.sap.spring.beans: INFO

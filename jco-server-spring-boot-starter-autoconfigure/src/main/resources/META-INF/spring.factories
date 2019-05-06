@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration = \
+  cn.gitlab.virtualcry.jcospring.boot.autoconfigure.JCoServerAutoConfiguration

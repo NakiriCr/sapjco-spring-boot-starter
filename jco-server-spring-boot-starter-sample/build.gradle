@@ -1,0 +1,64 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.20.RELEASE'
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+apply plugin: 'org.springframework.boot'
+
+group 'cn.gitlab.virtualcry'
+version = '1.0.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << "-parameters"
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/boot', 'src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+        resources {
+            srcDirs = ['src/test/resources']
+        }
+    }
+}
+
+configurations {
+    all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+}
+
+dependencies {
+    implementation fileTree (dir:'libs',include:['*.jar'])
+
+    implementation project(':jco-server-spring-boot-starter')
+
+    implementation('org.springframework.boot:spring-boot-starter-aop')
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+    compileOnly 'org.projectlombok:lombok'
+}

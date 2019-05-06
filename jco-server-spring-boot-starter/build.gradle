@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.gitlab.virtualcry'
+version '1.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << "-parameters"
+}
+
+configurations {
+    all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+}
+
+dependencies {
+
+    compile project(':jco-spring')
+    compile project(':jco-server-spring-boot-starter-autoconfigure')
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
