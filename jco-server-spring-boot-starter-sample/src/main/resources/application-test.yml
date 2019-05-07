@@ -27,3 +27,30 @@ jco:
       #  connectionCount: 20
       #  # 语言
       language: ZH
+
+    test-dev2:
+      # 服务器地址
+      ashost: 192.168.0.50
+      # 系统编号
+      sysnr: 00
+      # SAP集团
+      client: 120
+      # 用户名
+      user: ZCALLRFC
+      #   #明文密码
+      password: 123456789
+      # 网关地址
+      gateway-host: 192.168.0.50
+      # TCP服务sapgw是固定的，后面的00就是SAP实例系统编号，也可直接是端口号（端口号可以在etc/server文件中找sapgw00所对应的端口号）
+      gatewayService: sapgw00
+      # 这里的程序ID来自于SM59中设置的Program ID，必须相同
+      programId: JAVA_JCO1
+
+      #  # 最大连接数
+      #  pool-capacity: 20
+      #  # 最大连接线程
+      #  peak-limit: 10
+      #  #
+      #  connectionCount: 20
+      #  # 语言
+      language: ZH

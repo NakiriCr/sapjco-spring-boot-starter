@@ -1,10 +1,13 @@
 package cn.gitlab.virtualcry.jcospring.boot.autoconfigure;
 
-import cn.gitlab.virtualcry.jcospring.cache.JCoServerCache;
+import cn.gitlab.virtualcry.jcospring.connect.server.semaphore.JCoServerCreatedOnErrorSemaphore;
 import cn.gitlab.virtualcry.jcospring.connect.wrapper.JCoServerWrapper;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Auto configuration
@@ -25,18 +28,23 @@ public class JCoServerAutoConfiguration implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
 
         // duplicate check
-        long distinctServerCount = properties.getServers().values().stream()
-                .map(settings -> settings.getGatewayHost() + "|" + settings.getGatewayService() + "|" + settings.getProgramId())
-                .distinct()
-                .count();
-        if (distinctServerCount != properties.getServers().values().size())
-            throw new Exception("There're some servers with the same gatewayHost & gatewayService & programId. Please check configurations.");
+         properties.getServers().entrySet().stream()
+                .collect(Collectors.toMap(
+                        entry -> "gatewayHost: " + entry.getValue().getGatewayHost()
+                                + " | " + "gatewayService: " + entry.getValue().getGatewayService()
+                                + " | " + "programId: " + entry.getValue().getProgramId(),
+                        Map.Entry::getKey,
+                        (oldValue, newValue) -> oldValue + "," + newValue
+                ))
+                 .forEach((uniqueKey, serverNames) -> {
+                     if (serverNames.split(",").length > 1)
+                         throw new JCoServerCreatedOnErrorSemaphore("Duplicate settings: [" +
+                                 uniqueKey + "] with server: [" + serverNames + "]");
+                 });
 
-        properties.getServers().forEach((serverName, settings) -> {
-            JCoServerWrapper server = new JCoServerWrapper(settings);
-            server.start();
-            JCoServerCache.cache(serverName, server);
-        });
+         // start server
+        properties.getServers()
+                .forEach((serverName, settings) -> new JCoServerWrapper(settings).start());
     }
 
 }
