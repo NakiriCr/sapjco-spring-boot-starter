@@ -2,5 +2,3 @@ rootProject.name = 'jco-spring-boot-starter'
 include 'jco-server-spring-boot-starter'
 include 'jco-server-spring-boot-starter-autoconfigure'
 include 'jco-server-spring-boot-starter-sample'
-includeFlat 'jco-spring'
-
