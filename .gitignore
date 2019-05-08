@@ -195,3 +195,5 @@ test/
 .temp
 .gradle
 *.trc
+
+gradle.properties
