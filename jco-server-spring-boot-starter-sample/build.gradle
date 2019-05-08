@@ -13,8 +13,8 @@ plugins {
 
 apply plugin: 'org.springframework.boot'
 
-group 'cn.gitlab.virtualcry'
-version = '1.0.0-SNAPSHOT'
+group 'cn.yanzx-dev.gitlab'
+version '3.0.0.BUILD-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
