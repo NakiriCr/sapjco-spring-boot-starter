@@ -28,25 +28,6 @@ tasks.withType(JavaCompile) {
     options.compilerArgs << "-parameters"
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/boot', 'src/main/java']
-        }
-        resources {
-            srcDirs = ['src/main/resources']
-        }
-    }
-    test {
-        java {
-            srcDirs = ['src/test/java']
-        }
-        resources {
-            srcDirs = ['src/test/resources']
-        }
-    }
-}
-
 configurations {
     all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
 }
