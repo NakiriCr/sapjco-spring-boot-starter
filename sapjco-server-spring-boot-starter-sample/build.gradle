@@ -20,6 +20,7 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
     maven { url 'https://repo.spring.io/milestone' }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 tasks.withType(JavaCompile) {
@@ -51,10 +52,9 @@ configurations {
 }
 
 dependencies {
-    implementation fileTree (dir:'libs',include:['*.jar'])
+    implementation fileTree (dir:'libs',include:['**.jar'])
 
-    implementation project(':jco-server-spring-boot-starter')
-
+    implementation project(':sapjco-server-spring-boot-starter')
     implementation('org.springframework.boot:spring-boot-starter-aop')
 
     testImplementation('org.springframework.boot:spring-boot-starter-test')
