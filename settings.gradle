@@ -1,3 +1,3 @@
-rootProject.name = 'jco-spring-boot-starter'
-include 'jco-server-spring-boot-starter'
-include 'jco-server-spring-boot-starter-sample'
+rootProject.name = 'sapjco-spring-boot-starter'
+include 'sapjco-server-spring-boot-starter'
+include 'sapjco-server-spring-boot-starter-sample'

@@ -2,8 +2,10 @@ plugins {
     id 'java'
 }
 
+apply from: 'artifact.gradle'
+
 group 'cn.yanzx-dev.gitlab'
-version '3.0.0.BUILD-SNAPSHOT'
+version artifactVersion
 
 sourceCompatibility = 1.8
 
