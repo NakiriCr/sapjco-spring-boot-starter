@@ -56,16 +56,16 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId = 'cn.yanzx-dev.gitlab'
-            artifactId = 'sapjco-server-spring-boot-starter'
+            artifactId = 'sapjco-spring-boot-starter-autoconfigure'
             version = artifactVersion
             from components.java
             artifact sourcesJar
             artifact javadocJar
             pom {
                 // artifact name
-                name = 'Sapjco Server Spring Boot Starter'
+                name = 'Sapjco Spring Boot Starter AutoConfigure'
                 // artifact description
-                description = 'Sapjco Server integration with Spring Boot'
+                description = 'Sapjco Spring Boot Starter AutoConfigure'
                 // artifact homepage
                 url = 'https://gitlab.yanzx-dev.cn/VirtualCry/sapjco-spring-boot-starter'
                 // licenses

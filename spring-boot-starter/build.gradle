@@ -1,6 +1,8 @@
 plugins {
     id 'java'
 }
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
 apply from: rootDir.canonicalPath + '/artifact.gradle'
 
@@ -30,4 +32,85 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '1.4.0.RELEASE'
     
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'cn.yanzx-dev.gitlab'
+            artifactId = 'sapjco-spring-boot-starter'
+            version = artifactVersion
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            pom {
+                // artifact name
+                name = 'Sapjco Spring Boot Starter'
+                // artifact description
+                description = 'Sapjco integration with Spring Boot'
+                // artifact homepage
+                url = 'https://gitlab.yanzx-dev.cn/VirtualCry/sapjco-spring-boot-starter'
+                // licenses
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                // developers info
+                developers {
+                    developer {
+                        name = 'VirtualCry'
+                        email = '172519267@qq.com'
+                    }
+                }
+                // scm
+                scm {
+                    url = 'https://gitlab.yanzx-dev.cn/VirtualCry/sapjco-spring-boot-starter'
+                    connection = 'scm:git:https://gitlab.yanzx-dev.cn/VirtualCry/sapjco-spring-boot-starter.git'
+                    developerConnection = 'scm:git:https://gitlab.yanzx-dev.cn/VirtualCry/sapjco-spring-boot-starter.git'
+                }
+            }
+        }
+    }
+    // repositories to publish
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username sonatypeUsername
+                password sonatypePassword
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+jar {
+    manifest {
+        attributes 'Built-By': 'VirtualCry'
+        attributes 'Created-By': 'Gradle-' + gradle.getGradleVersion()
+        attributes 'Build-Jdk': java.getTargetCompatibility()
+    }
 }
