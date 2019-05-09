@@ -33,7 +33,7 @@ configurations {
 }
 
 dependencies {
-    implementation project(':spring-boot-starter')
+    implementation project(':sapjco-spring-boot-starter')
     implementation('org.springframework.boot:spring-boot-starter-aop')
 
     testImplementation('org.springframework.boot:spring-boot-starter-test')
