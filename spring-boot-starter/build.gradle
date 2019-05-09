@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+apply from: rootDir.canonicalPath + '/artifact.gradle'
+
+group 'cn.yanzx-dev.gitlab'
+version artifactVersion
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << "-parameters"
+}
+
+configurations {
+    all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    compile project(':sapjco-spring-boot-starter-autoconfigure')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '1.4.0.RELEASE'
+    
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
