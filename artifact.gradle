@@ -1,3 +1,3 @@
 ext {
-    artifactVersion = '3.0.1' + '-SNAPSHOT'
+    artifactVersion = '3.0.2'
 }
