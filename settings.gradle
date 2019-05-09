@@ -1,5 +1,4 @@
-rootProject.name = 'sapjco-spring-boot-starter'
+rootProject.name = 'sapjco-spring-boot-starter-all'
+include 'sapjco-spring-boot-starter'
 include 'sapjco-spring-boot-starter-autoconfigure'
 include 'sapjco-spring-boot-starter-sample'
-include 'spring-boot-starter'
-
