@@ -37,9 +37,13 @@ configurations {
 dependencies {
     implementation project(':sapjco-spring-boot-starter')
     implementation('org.springframework.boot:spring-boot-starter-aop')
-
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
     
     annotationProcessor('org.springframework.boot:spring-boot-configuration-processor')
-    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+    annotationProcessor 'org.projectlombok:lombok:1.18.2'
+    compileOnly 'org.projectlombok:lombok:1.18.2'
+    
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.2'
+    testCompileOnly 'org.projectlombok:lombok:1.18.2'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
 }

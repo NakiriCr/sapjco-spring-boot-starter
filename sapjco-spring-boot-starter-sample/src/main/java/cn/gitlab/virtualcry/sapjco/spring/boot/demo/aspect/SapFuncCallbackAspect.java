@@ -3,7 +3,7 @@ package cn.gitlab.virtualcry.sapjco.spring.boot.demo.aspect;
 import cn.gitlab.virtualcry.sapjco.spring.boot.demo.aspect.vo.SapInvokeLog;
 import cn.gitlab.virtualcry.sapjco.util.data.JCoDataUtils;
 import com.sap.conn.jco.JCoFunction;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -20,7 +20,7 @@ import static cn.gitlab.virtualcry.sapjco.spring.boot.demo.aspect.vo.AspectHandl
  *
  * @author VirtualCry
  */
-@Slf4j
+@Log4j
 @Component
 @Aspect
 public class SapFuncCallbackAspect {
