@@ -1,6 +1,6 @@
-package cn.gitlab.virtualcry.jcospring.template.boot;
+package cn.gitlab.virtualcry.sapjco.spring.boot.demo;
 
-import cn.gitlab.virtualcry.jcospring.extension.context.annotation.JCoComponentScan;
+import cn.gitlab.virtualcry.sapjco.spring.context.annotation.JCoComponentScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author VirtualCry
  */
-@JCoComponentScan("cn.gitlab.virtualcry.jcospring.template.handler")
+@JCoComponentScan("cn.gitlab.virtualcry.sapjco.spring.boot.demo.handler")
 @SpringBootApplication
 public class JCoServerBootstrap {
 

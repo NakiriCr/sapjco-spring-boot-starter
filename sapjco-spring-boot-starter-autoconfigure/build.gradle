@@ -7,7 +7,7 @@ apply from: rootDir.canonicalPath + '/artifact.gradle'
 group 'cn.yanzx-dev.gitlab'
 version artifactVersion
 
-sourceCompatibility = '1.8'
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -26,7 +26,7 @@ configurations {
 }
 
 dependencies {
-    compile group: 'cn.yanzx-dev.gitlab', name: 'sapjco-spring', version: '3.1.3'
+    compile group: 'com.github.virtualcry', name: 'sapjco-spring', version: '3.2.0'
     compile group: 'org.springframework.boot', name: 'spring-boot', version: '1.4.0.RELEASE'
     
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.0.RELEASE'

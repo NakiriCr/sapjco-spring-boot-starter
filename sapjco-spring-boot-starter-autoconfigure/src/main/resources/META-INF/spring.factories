@@ -1,2 +1,5 @@
+org.springframework.context.ApplicationContextInitializer = \
+  cn.gitlab.virtualcry.sapjco.spring.context.JCoApplicationContextInitializer
+
 org.springframework.boot.autoconfigure.EnableAutoConfiguration = \
-  cn.gitlab.virtualcry.jcospring.boot.autoconfigure.JCoServerAutoConfiguration
+  cn.gitlab.virtualcry.sapjco.spring.boot.autoconfigure.JCoConnectionAutoConfiguration
