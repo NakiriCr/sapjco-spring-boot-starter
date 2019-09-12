@@ -1,9 +1,8 @@
 plugins {
     id 'java'
 }
-apply plugin: 'maven-publish'
-apply plugin: 'signing'
 
+apply from: 'artifact_publish.gradle'
 apply from: rootDir.canonicalPath + '/artifact.gradle'
 
 group 'cn.yanzx-dev.gitlab'
