@@ -20,7 +20,7 @@ tasks.withType(Javadoc) {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'cn.yanzx-dev.gitlab'
+            groupId = 'com.github.virtualcry'
             artifactId = 'sapjco-spring-boot-starter-autoconfigure'
             version = artifactVersion
             from components.java
