@@ -14,12 +14,11 @@ import java.util.Map;
 @ConfigurationProperties(prefix = "jco")
 public class JCoConnectionProperties {
 
-    private Map<String, JCoSettings>                    servers;
-    private Map<String, JCoSettings>                    clients;
+    private final Map<String, JCoSettings>      servers;
+    private final Map<String, JCoSettings>      clients;
 
     public JCoConnectionProperties() {
         this.servers = new LinkedHashMap<>();
         this.clients = new LinkedHashMap<>();
     }
-
 }

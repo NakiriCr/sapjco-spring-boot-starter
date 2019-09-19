@@ -37,6 +37,7 @@ configurations {
 dependencies {
     implementation project(':sapjco-spring-boot-starter')
     implementation('org.springframework.boot:spring-boot-starter-aop')
+    implementation('org.springframework.boot:spring-boot-starter-web')
     
     annotationProcessor('org.springframework.boot:spring-boot-configuration-processor')
     compileOnly('org.springframework.boot:spring-boot-configuration-processor')
