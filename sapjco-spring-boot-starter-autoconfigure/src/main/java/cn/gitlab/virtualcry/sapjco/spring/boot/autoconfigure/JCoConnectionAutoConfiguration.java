@@ -1,6 +1,6 @@
 package cn.gitlab.virtualcry.sapjco.spring.boot.autoconfigure;
 
-import cn.gitlab.virtualcry.sapjco.beans.factory.ConnectionFactory;
+import cn.gitlab.virtualcry.sapjco.beans.factory.JCoConnectionFactory;
 import cn.gitlab.virtualcry.sapjco.config.JCoSettings;
 import cn.gitlab.virtualcry.sapjco.server.JCoServer;
 import org.springframework.beans.factory.InitializingBean;
@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Map;
-import java.util.function.Consumer;
+import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
 /**
@@ -21,28 +21,32 @@ import java.util.stream.Collectors;
 public class JCoConnectionAutoConfiguration implements InitializingBean {
 
     private final JCoConnectionProperties   properties;
+    private final JCoConnectionFactory      connectionFactory;
 
-    public JCoConnectionAutoConfiguration(JCoConnectionProperties properties) {
+    public JCoConnectionAutoConfiguration(JCoConnectionProperties properties,
+                                          JCoConnectionFactory connectionFactory) {
         this.properties = properties;
+        this.connectionFactory = connectionFactory;
     }
 
 
     @Override
     public void afterPropertiesSet() {
         // create server connections
-        this.createServerConnections.accept(this.properties.getServers());
+        this.createServerConnections.accept(this.connectionFactory, this.properties.getServers());
         // create client connections
-        this.createClientConnections.accept(this.properties.getClients());
+        this.createClientConnections.accept(this.connectionFactory, this.properties.getClients());
     }
 
 
     /**
      * Create connections for server.
      */
-    private final Consumer<Map<String, JCoSettings>> createServerConnections = connectionProperties -> {
+    private final BiConsumer<JCoConnectionFactory,
+            Map<String, JCoSettings>> createServerConnections = (connectionFactory, connectionProperties) -> {
        // create and start server.
        connectionProperties.entrySet().stream()
-               .map(entry -> ConnectionFactory.createServer(entry.getKey(), entry.getValue()))
+               .map(entry -> connectionFactory.createServer(entry.getKey(), entry.getValue()))
                .collect(Collectors.toList())
                .forEach(JCoServer::start);
    };
@@ -50,8 +54,9 @@ public class JCoConnectionAutoConfiguration implements InitializingBean {
     /**
      * Create connections for client.
      */
-    private final Consumer<Map<String, JCoSettings>> createClientConnections = connectionProperties -> {
+    private final BiConsumer<JCoConnectionFactory,
+            Map<String, JCoSettings>> createClientConnections = (connectionFactory, connectionProperties) -> {
         // create client.
-        connectionProperties.forEach(ConnectionFactory::createClient);
+        connectionProperties.forEach(connectionFactory::createClient);
     };
 }
