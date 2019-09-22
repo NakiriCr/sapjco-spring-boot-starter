@@ -11,7 +11,7 @@
 * ### 快速便捷的RFC函数操作
 
 ## 如何使用
-* [查看文档](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/How-to-Use "See the docs") 
+* [查看文档](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/How-to-Use.zh "查看文档") 
 
 ## 快速开始
-* [查看wiki页面](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/Quick-Start "See the wiki page") 
+* [查看wiki页面](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/Quick-Start.zh "查看wiki页面") 
