@@ -12,6 +12,7 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven { url "https://oss.sonatype.org/content/groups/public/" }
 }
 
 tasks.withType(JavaCompile) {
@@ -27,7 +28,7 @@ configurations {
 }
 
 dependencies {
-    compile group: 'com.github.virtualcry', name: 'sapjco-spring', version: '3.2.2'
+    compile group: 'com.github.virtualcry', name: 'sapjco-spring', version: '3.2.3-SNAPSHOT'
     compile group: 'org.springframework.boot', name: 'spring-boot', version: '1.4.0.RELEASE'
     
     annotationProcessor group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '1.4.0.RELEASE'
