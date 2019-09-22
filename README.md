@@ -11,7 +11,7 @@
 * ### Quickly operate sap function
 
 ## How to Use
-* [See the docs](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/How-to-Use "See the docs") 
+* [See the docs](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/How-to-Use.en "See the docs") 
 
 ## Quick Start
-* [See the wiki page](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/Quick-Start "See the wiki page") 
+* [See the wiki page](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/Quick-Start.en "See the wiki page") 
