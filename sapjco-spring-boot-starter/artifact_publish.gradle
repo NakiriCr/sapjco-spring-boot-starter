@@ -32,7 +32,7 @@ publishing {
                 // artifact description
                 description = 'Sapjco integration with Spring Boot'
                 // artifact homepage
-                url = 'https://gitlab.yanzx-dev.cn/VirtualCry/sapjco-spring-boot-starter'
+                url = 'https://github.com/virtualcry/sapjco-spring-boot-starter'
                 // licenses
                 licenses {
                     license {
@@ -49,9 +49,9 @@ publishing {
                 }
                 // scm
                 scm {
-                    url = 'https://gitlab.yanzx-dev.cn/VirtualCry/sapjco-spring-boot-starter'
-                    connection = 'scm:git:https://gitlab.yanzx-dev.cn/VirtualCry/sapjco-spring-boot-starter.git'
-                    developerConnection = 'scm:git:https://gitlab.yanzx-dev.cn/VirtualCry/sapjco-spring-boot-starter.git'
+                    url = 'https://github.com/virtualcry/sapjco-spring-boot-starter'
+                    connection = 'scm:git:https://github.com/virtualcry/sapjco-spring-boot-starter.git'
+                    developerConnection = 'scm:git:https://github.com/virtualcry/sapjco-spring-boot-starter.git'
                 }
             }
         }
