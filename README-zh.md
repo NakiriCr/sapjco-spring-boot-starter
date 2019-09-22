@@ -8,12 +8,12 @@
 
 ----
 
-## Inclusions
-* ### Quickly start rfc client & server
-* ### Quickly operate sap function
+## 内容
+* ### 快速创建与启动RFC客户端和服务端
+* ### 快速便捷的RFC函数操作
 
-## How to Use
-* [See the docs](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/How-to-Use "See the docs") 
+## 如何使用
+* [查看文档](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/How-to-Use "See the docs") 
 
-## Quick Start
-* [See the wiki page](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/Quick-Start "See the wiki page") 
+## 快速开始
+* [查看wiki页面](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/Quick-Start "See the wiki page") 
