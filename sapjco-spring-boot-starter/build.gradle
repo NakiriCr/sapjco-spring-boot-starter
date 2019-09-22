@@ -27,7 +27,7 @@ configurations {
 }
 
 dependencies {
-    compile group: 'com.github.virtualcry', name: 'sapjco-spring', version: '3.2.3-SNAPSHOT'
+    compile group: 'com.github.virtualcry', name: 'sapjco-spring', version: '3.2.3'
     compile project(':sapjco-spring-boot-starter-autoconfigure')
     compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '1.4.0.RELEASE'
     
