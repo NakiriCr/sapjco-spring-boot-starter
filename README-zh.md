@@ -4,7 +4,7 @@
 
 ![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?color=green)
 ![Maven Central](https://img.shields.io/maven-central/v/com.github.virtualcry/sapjco-spring-boot-starter.svg)
-![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/snapshots/https/oss.sonatype.org/com.github.virtualcry/sapjco-spring-boot-starter.svg)
+![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/https/oss.sonatype.org/com.github.virtualcry/sapjco-spring-boot-starter.svg)
 
 ## 内容
 * ### 快速创建与启动RFC客户端和服务端
