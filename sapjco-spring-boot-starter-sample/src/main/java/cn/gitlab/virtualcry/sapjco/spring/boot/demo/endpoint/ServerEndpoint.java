@@ -2,9 +2,13 @@ package cn.gitlab.virtualcry.sapjco.spring.boot.demo.endpoint;
 
 import cn.gitlab.virtualcry.sapjco.beans.factory.JCoConnectionFactory;
 import cn.gitlab.virtualcry.sapjco.config.JCoSettings;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Collection;
 import java.util.Optional;
 
 /**
@@ -19,10 +23,9 @@ public class ServerEndpoint {
     @Resource
     private JCoConnectionFactory        connectionFactory;
 
-
-    @PostMapping("{serverName}/create")
-    public void createServer(@PathVariable String serverName, @RequestBody JCoSettings settings) {
-        this.connectionFactory.createServer(serverName, settings).start();
+    @GetMapping("names")
+    public Collection<String> getAllServerNames() {
+        return connectionFactory.getServers().keySet();
     }
 
     @GetMapping("{serverName}/settings")
@@ -31,11 +34,6 @@ public class ServerEndpoint {
                 .ofNullable(this.connectionFactory.getServer(serverName))
                 .orElseThrow(() -> new RuntimeException("Could not find server: [" + serverName + "]"))
                 .getSettings();
-    }
-
-    @DeleteMapping("{serverName}/release")
-    public void releaseServer(@PathVariable String serverName) {
-        this.connectionFactory.releaseServer(serverName);
     }
 
     @GetMapping("{serverName}/state")
