@@ -1,7 +1,6 @@
 jco:
   servers:
-
-    test-dev1:
+    main-server:
       # 服务器地址
       ashost: 192.168.0.50
       # 系统编号
@@ -27,8 +26,7 @@ jco:
       #  connectionCount: 20
       #  # 语言
       language: ZH
-
-    test-dev2:
+    standby-server:
       # 服务器地址
       ashost: 192.168.0.50
       # 系统编号
@@ -45,6 +43,29 @@ jco:
       gatewayService: sapgw00
       # 这里的程序ID来自于SM59中设置的Program ID，必须相同
       programId: JAVA_JCO_SRM2
+
+      #  # 最大连接数
+      #  pool-capacity: 20
+      #  # 最大连接线程
+      #  peak-limit: 10
+      #  #
+      #  connectionCount: 20
+      #  # 语言
+      language: ZH
+
+
+  clients:
+    main-client:
+      # 服务器地址
+      ashost: 192.168.0.50
+      # 系统编号
+      sysnr: 00
+      # SAP集团
+      client: 120
+      # 用户名
+      user: ZCALLRFC
+      #   #明文密码
+      password: 123456789
 
       #  # 最大连接数
       #  pool-capacity: 20

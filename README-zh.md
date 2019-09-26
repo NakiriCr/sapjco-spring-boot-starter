@@ -6,12 +6,12 @@
 ![Maven Central](https://img.shields.io/maven-central/v/com.github.virtualcry/sapjco-spring-boot-starter.svg)
 ![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/https/oss.sonatype.org/com.github.virtualcry/sapjco-spring-boot-starter.svg)
 
-## Inclusions
-* ### Quickly start rfc client & server
-* ### Quickly operate sap function
+## 内容
+* ### 快速创建与启动RFC客户端和服务端
+* ### 快速便捷的RFC函数操作
 
-## How to Use
-* [See the docs](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/How-to-Use.en "See the docs") 
+## 如何使用
+* [查看文档](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/How-to-Use.zh "查看文档") 
 
-## Quick Start
-* [See the wiki page](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/Quick-Start.en "See the wiki page") 
+## 快速开始
+* [查看wiki页面](https://gitlab.yanzx-dev.cn/sapjco/sapjco-spring-boot-starter/wikis/Quick-Start.zh "查看wiki页面") 
